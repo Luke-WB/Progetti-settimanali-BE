@@ -1,0 +1,6 @@
+package CATALOGO_BIBLIOTECARIO;
+
+public enum Periodicita {
+    SETTIMANALE, MENSILE, SEMESTRALE
+
+}
