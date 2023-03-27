@@ -12,7 +12,7 @@ public class Disco {
     public static void writeFile(Archivio archivio) throws IOException {
 	File myCatalogue = new File("archivio.txt");
 	FileWriter myPW = new FileWriter(myCatalogue);
-	((PrintStream) myPW).print(archivio);
+	
 	myPW.close();
     }
 

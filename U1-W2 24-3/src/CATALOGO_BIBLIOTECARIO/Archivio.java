@@ -29,9 +29,9 @@ public class Archivio {
 
 	// RIVISTE
 
-	Riviste r1 = new Riviste(99900, "Chi?", 2022, Periodicita.SETTIMANALE);
-	Riviste r2 = new Riviste(99911, "AutoScout24", 2021, Periodicita.MENSILE);
-	Riviste r3 = new Riviste(99922, "Sudoku6", 2023, Periodicita.SEMESTRALE);
+	Riviste r1 = new Riviste(99900, "Chi?", 2022, Periodicità.SETTIMANALE);
+	Riviste r2 = new Riviste(99911, "AutoScout24", 2021, Periodicità.MENSILE);
+	Riviste r3 = new Riviste(99922, "Sudoku6", 2023, Periodicità.SEMESTRALE);
 	List<Riviste> elencoRiviste = new ArrayList<>();
 	aggiungiRiviste(r1, elencoRiviste);
 	aggiungiRiviste(r2, elencoRiviste);
@@ -92,10 +92,8 @@ public class Archivio {
     // RIVISTE
 
     public static void aggiungiRiviste(Riviste r, List<Riviste> lista) {
-
 	lista.add(r);
 	lista.stream().collect(Collectors.toList());
-
     }
 
     public static void rimuoviiRiviste(List<Riviste> lista) {
@@ -104,7 +102,6 @@ public class Archivio {
 	List<Riviste> rivisteRimanenti = lista.stream().filter(x -> x.getCodiceISBN() != codice)
 		.collect(Collectors.toList());
 	logger.info("RIVISTE RIMANENTI: " + rivisteRimanenti.toString());
-
     }
 
     public static void ricercaCodRiviste(List<Riviste> lista) {
@@ -113,7 +110,6 @@ public class Archivio {
 	List<Riviste> rivisteRimanenti = lista.stream().filter(x -> x.getCodiceISBN() == codice)
 		.collect(Collectors.toList());
 	logger.info("ECCO IL TUA RIVISTA TRAMITE CODICE: " + rivisteRimanenti.toString());
-
     }
 
     public static void ricercaAnnoRiviste(List<Riviste> lista) {

@@ -2,12 +2,13 @@
  * 
  */
 /**
- * @author bened
+ * @author scoml
  *
  */
-module project2 {
+module Progetto2 {
     requires java.logging;
     requires jdk.jshell;
-    requires lombok;
+
     requires org.apache.commons.io;
+    requires lombok;
 }
