@@ -1,16 +1,16 @@
-package com.prenotazioni.service;
+package com.prenotazioni.azienda.service;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.prenotazioni.model.Edificio;
-import com.prenotazioni.model.Postazione;
-import com.prenotazioni.model.Utente;
-import com.prenotazioni.repository.EdificioDao;
-import com.prenotazioni.repository.PostazioneDao;
-import com.prenotazioni.repository.UtenteDao;
+import com.prenotazioni.azienda.model.Edificio;
+import com.prenotazioni.azienda.model.Postazione;
+import com.prenotazioni.azienda.model.Utente;
+import com.prenotazioni.azienda.repository.EdificioDao;
+import com.prenotazioni.azienda.repository.PostazioneDao;
+import com.prenotazioni.azienda.repository.UtenteDao;
 
 @Service
 public class PrenotazioneService {

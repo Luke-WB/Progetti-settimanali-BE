@@ -1,4 +1,4 @@
-package com.prenotazioni.model;
+package com.prenotazioni.azienda.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

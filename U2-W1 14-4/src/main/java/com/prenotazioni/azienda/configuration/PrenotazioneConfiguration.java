@@ -1,4 +1,4 @@
-package com.prenotazioni.configuration;
+package com.prenotazioni.azienda.configuration;
 
 import java.util.Locale;
 
@@ -8,10 +8,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 
 import com.github.javafaker.Faker;
-import com.prenotazioni.model.Edificio;
-import com.prenotazioni.model.Postazione;
-import com.prenotazioni.model.Tipo;
-import com.prenotazioni.model.Utente;
+import com.prenotazioni.azienda.model.Edificio;
+import com.prenotazioni.azienda.model.Postazione;
+import com.prenotazioni.azienda.model.Tipo;
+import com.prenotazioni.azienda.model.Utente;
 
 @Configuration
 @PropertySource("classpath:application.properties")
@@ -32,7 +32,7 @@ public class PrenotazioneConfiguration {
     @Bean("ParamsEdificio")
     @Scope("prototype")
     public Edificio edificioCrea(String nome, String indirizzo, String città) {
-	return new Edificio(nome, indirizzo, città);
+	return new Edificio(null, nome, indirizzo, città);
     }
 
     @Bean("ParamsUtente")

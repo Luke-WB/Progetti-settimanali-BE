@@ -1,16 +1,16 @@
-package com.prenotazioni.repository;
+package com.prenotazioni.azienda.repository;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.prenotazioni.model.Edificio;
-import com.prenotazioni.model.Postazione;
-import com.prenotazioni.model.Tipo;
+import com.prenotazioni.azienda.model.Edificio;
+import com.prenotazioni.azienda.model.Postazione;
+import com.prenotazioni.azienda.model.Tipo;
 
 @Repository
-public interface PostazioneDao extends CrudRepository<Postazione, Long> {
+public interface PostazioneDao extends JpaRepository<Postazione, Long> {
     public List<Postazione> findByDescrizionePostazione(String descrizionePostazione);
 
     public List<Postazione> findByNumMaxOccupanti(Integer numMaxOccupanti);
