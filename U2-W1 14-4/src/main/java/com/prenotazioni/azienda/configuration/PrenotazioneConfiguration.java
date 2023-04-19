@@ -16,11 +16,6 @@ import com.prenotazioni.azienda.model.Utente;
 @Configuration
 @PropertySource("classpath:application.properties")
 public class PrenotazioneConfiguration {
-    @Bean("CustomPostazione")
-    @Scope("prototype")
-    public Postazione customPostazione() {
-	return new Postazione();
-    }
 
     @Bean("ParamsPostazione")
     @Scope("prototype")
@@ -49,7 +44,7 @@ public class PrenotazioneConfiguration {
 	p.setDescrizionePostazione(fake.funnyName().name());
 	p.setNumMaxOccupanti(fake.number().numberBetween(100, 180));
 	p.setTipo(Tipo.OPENSPACE);
-	p.setEdificio(fakeEdificio());
+	// p.setEdificio(fakeEdificio());
 	return p;
     }
 

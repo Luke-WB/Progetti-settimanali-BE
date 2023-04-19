@@ -1,5 +1,7 @@
 package com.prenotazioni.azienda.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,18 +12,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "edificio")
+@SuppressWarnings("serial")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class Edificio {
+@Entity
+@Table(name = "edificio")
+public class Edificio implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idEdificio;
     private String nome;
     private String indirizzo;
     private String città;
-
 }

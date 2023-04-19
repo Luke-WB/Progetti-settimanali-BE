@@ -16,8 +16,7 @@ public class PrenotazioneRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 	System.out.println("Run...");
-	// service.createFakePostazione();
-	service.creaUtente();
+	 service.creaUtente();
 	service.creaEdificio();
 	service.createFakePostazione();
 
