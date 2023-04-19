@@ -1,5 +1,6 @@
 package com.prenotazioni.azienda.configuration;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.context.annotation.Bean;
@@ -26,8 +27,8 @@ public class PrenotazioneConfiguration {
 
     @Bean("ParamsEdificio")
     @Scope("prototype")
-    public Edificio edificioCrea(String nome, String indirizzo, String città) {
-	return new Edificio(null, nome, indirizzo, città);
+    public Edificio edificioCrea(String nome, String indirizzo, String città, List<Postazione> listaPostazione) {
+	return new Edificio(null, nome, indirizzo, città, listaPostazione);
     }
 
     @Bean("ParamsUtente")

@@ -1,11 +1,13 @@
 package com.prenotazioni.azienda.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,4 +29,6 @@ public class Edificio implements Serializable {
     private String nome;
     private String indirizzo;
     private String città;
+    @OneToMany
+    private List<Postazione> listaPostazione;
 }

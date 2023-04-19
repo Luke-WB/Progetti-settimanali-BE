@@ -1,5 +1,8 @@
 package com.prenotazioni.azienda.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -53,6 +56,14 @@ public class PrenotazioneService {
 
     public void insertUtente(Utente u) {
 	repoU.save(u);
+    }
+
+    public List<Postazione> initPostazione(Edificio edificio) {
+	List<Postazione> result = new ArrayList<Postazione>();
+	repoP.save(fakePostazioneProvider.getObject());
+	// log.info("Saved Postazione: {}", post.getCodice());
+	result.add(fakePostazioneProvider.getObject());
+	return result;
     }
 
 }
