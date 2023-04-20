@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 
 import com.prenotazioni.azienda.model.Edificio;
 import com.prenotazioni.azienda.model.Postazione;
+import com.prenotazioni.azienda.model.Prenotazione;
 import com.prenotazioni.azienda.model.Utente;
 import com.prenotazioni.azienda.repository.EdificioDao;
 import com.prenotazioni.azienda.repository.PostazioneDao;
+import com.prenotazioni.azienda.repository.PrenotazioneDao;
 import com.prenotazioni.azienda.repository.UtenteDao;
 
 @Service
@@ -23,6 +25,8 @@ public class PrenotazioneService {
     private EdificioDao repoE;
     @Autowired
     private UtenteDao repoU;
+    @Autowired
+    private PrenotazioneDao repoPre;
 
     @Autowired
     @Qualifier("FakePostazione")
@@ -33,6 +37,9 @@ public class PrenotazioneService {
     @Autowired
     @Qualifier("FakeUtente")
     private ObjectProvider<Utente> fakeUtenteProvider;
+    @Autowired
+    @Qualifier("FakePrenotazione")
+    private ObjectProvider<Prenotazione> fakePrenotazioneProvider;
 
     public void createFakePostazione() {
 	insertPostazione(fakePostazioneProvider.getObject());
@@ -44,6 +51,10 @@ public class PrenotazioneService {
 
     public void creaUtente() {
 	insertUtente(fakeUtenteProvider.getObject());
+    }
+
+    public void CreateFPrenotazione() {
+	insertPrenotazione(fakePrenotazioneProvider.getObject());
     }
 
     public void insertPostazione(Postazione p) {
@@ -58,12 +69,41 @@ public class PrenotazioneService {
 	repoU.save(u);
     }
 
-    public List<Postazione> initPostazione(Edificio edificio) {
-	List<Postazione> result = new ArrayList<Postazione>();
-	repoP.save(fakePostazioneProvider.getObject());
-	// log.info("Saved Postazione: {}", post.getCodice());
-	result.add(fakePostazioneProvider.getObject());
-	return result;
+    public void insertPrenotazione(Prenotazione pre) {
+	repoPre.save(pre);
+    }
+
+    public List<Postazione> creaListaPostazioni(Edificio edificio) {
+	List<Postazione> listPostazioni = new ArrayList<Postazione>();
+	Postazione p1 = repoP.save(fakePostazioneProvider.getObject());
+	Postazione p2 = repoP.save(fakePostazioneProvider.getObject());
+	Postazione p3 = repoP.save(fakePostazioneProvider.getObject());
+	listPostazioni.add(p1);
+	listPostazioni.add(p2);
+	listPostazioni.add(p3);
+	return listPostazioni;
+    }
+
+    public List<Prenotazione> creaListaPrenotazioniUtente(Utente utente) {
+	List<Prenotazione> listPrenotazioni = new ArrayList<Prenotazione>();
+	Prenotazione pre1 = repoPre.save(fakePrenotazioneProvider.getObject());
+	Prenotazione pre2 = repoPre.save(fakePrenotazioneProvider.getObject());
+	Prenotazione pre3 = repoPre.save(fakePrenotazioneProvider.getObject());
+	listPrenotazioni.add(pre1);
+	listPrenotazioni.add(pre2);
+	listPrenotazioni.add(pre3);
+	return listPrenotazioni;
+    }
+
+    public List<Prenotazione> creaListaPrenotazioniPostazioni(Postazione Postazione) {
+	List<Prenotazione> listPrenotazioni = new ArrayList<Prenotazione>();
+	Prenotazione pre1 = repoPre.save(fakePrenotazioneProvider.getObject());
+	Prenotazione pre2 = repoPre.save(fakePrenotazioneProvider.getObject());
+	Prenotazione pre3 = repoPre.save(fakePrenotazioneProvider.getObject());
+	listPrenotazioni.add(pre1);
+	listPrenotazioni.add(pre2);
+	listPrenotazioni.add(pre3);
+	return listPrenotazioni;
     }
 
 }
