@@ -71,17 +71,20 @@ public class AssegnazioneService {
 	return (List<Dipendente>) repoDipendente.findAll();
     }
 
-    public String deleteDipendente(Long id) {
+    public String delete(Long id) {
 	repoDipendente.deleteById(id);
+	repoDispositivo.deleteById(id);
 	return "Dipendente Eliminato!!";
     }
 
     public Dipendente createDipendente(Dipendente dipendente) {
-	return repoDipendente.save(dipendente);
+	repoDipendente.save(dipendente);
+	return dipendente;
     }
 
     public Dipendente putDipendente(Dipendente dipendente) {
-	return repoDipendente.save(dipendente);
+	repoDipendente.save(dipendente);
+	return dipendente;
     }
 
 }

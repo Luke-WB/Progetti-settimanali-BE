@@ -39,9 +39,9 @@ public class AssegnazioneController {
 	return new ResponseEntity<Dispositivo>(service.getDispositivo(id), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/dipendente/{id}")
     public ResponseEntity<String> deleteDipendente(@PathVariable Long id) {
-	return new ResponseEntity<String>(service.deleteDipendente(id), HttpStatus.OK);
+	return new ResponseEntity<String>(service.delete(id), HttpStatus.OK);
     }
 
     @PostMapping
