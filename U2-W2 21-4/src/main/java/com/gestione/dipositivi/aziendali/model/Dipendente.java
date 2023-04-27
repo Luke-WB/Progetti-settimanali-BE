@@ -27,6 +27,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "dipendenti", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
 	@UniqueConstraint(columnNames = "email") })
 public class Dipendente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,11 +41,12 @@ public class Dipendente {
     private String email;
     @Column(nullable = false)
     private String password;
+
     @ManyToMany
     private List<Dispositivo> lista_dispositivi;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private Set<Ruoli> roles = new HashSet<>();
+    @JoinTable(name = "dipendenti_ruoli", joinColumns = @JoinColumn(nullable = false, name = "dipendenti_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "ruoli_id", referencedColumnName = "id"))
+    private Set<Ruoli> ruoli = new HashSet<>();
 
 }

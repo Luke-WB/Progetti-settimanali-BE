@@ -27,7 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	Dipendente dipendente = dipendenteDao.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail).orElseThrow(
 		() -> new UsernameNotFoundException("User not found with username or email: " + usernameOrEmail));
 
-	Set<GrantedAuthority> authorities = dipendente.getRoles().stream()
+	Set<GrantedAuthority> authorities = dipendente.getRuoli().stream()
 		.map((role) -> new SimpleGrantedAuthority(role.getRoleName().toString())).collect(Collectors.toSet());
 
 	return new org.springframework.security.core.userdetails.User(dipendente.getEmail(), dipendente.getPassword(),

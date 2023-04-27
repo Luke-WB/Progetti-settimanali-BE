@@ -83,7 +83,7 @@ public class AutorizzazioneServiceImplement implements AutorizzazioneService {
 	    roles.add(userRole);
 	}
 
-	dipendente.setRoles(roles);
+	dipendente.setRuoli(roles);
 	System.out.println(dipendente);
 	dipendenteDao.save(dipendente);
 

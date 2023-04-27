@@ -14,6 +14,7 @@ import com.gestione.dipositivi.aziendali.model.StatoDispositivo;
 import com.gestione.dipositivi.aziendali.model.TipoDispositivo;
 import com.gestione.dipositivi.aziendali.repository.DipendenteDao;
 import com.gestione.dipositivi.aziendali.repository.DispositivoDao;
+import com.gestione.dipositivi.aziendali.repository.RuoliDao;
 import com.github.javafaker.Faker;
 
 @Configuration
@@ -23,10 +24,11 @@ public class AssegnazioneConfiguration {
     DispositivoDao dispositivoDao;
     @Autowired
     DipendenteDao dipendenteDao;
+    @Autowired
+    RuoliDao ruoliDao;
 
     @Bean("FakeDipendente")
     @Scope("prototype")
-
     Dipendente fakeDipendente() {
 	Faker fake = Faker.instance(new Locale("it-IT"));
 	Dipendente d = new Dipendente();
